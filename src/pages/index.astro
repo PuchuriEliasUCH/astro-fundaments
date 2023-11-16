@@ -1,0 +1,16 @@
+---
+// js para desarrollo
+import Layout from '../components/Layout.astro';
+const title = 'Mi primer proyecto en Astro';
+const color = 'danger';
+
+const hobbies = ['Programar', 'Leer', 'Escribir', 'Ver Peliculas'];
+---
+
+<Layout>
+  <h1 class=`${color}`>{title}</h1>
+
+  <ul>
+    {hobbies.map((el) => <li>{el}</li>)}
+  </ul>
+</Layout>

@@ -1,0 +1,29 @@
+---
+import Layout from '../../components/Layout.astro';
+
+const posts = await Astro.glob('./posts/*.md');
+---
+
+<Layout title='mi primer blog' desc='Armando el primer blog de nuestro sitio'>
+  <h1>Blog</h1>
+
+  {
+    posts.map((post) => (
+      <a class='link' href={post.url}>
+        {post.frontmatter.title}
+      </a>
+    ))
+  }
+
+  <style>
+    .link {
+      color: aliceblue;
+      text-decoration: none;
+      display: block;
+    }
+
+    .link:hover {
+      color: bisque;
+    }
+  </style>
+</Layout>

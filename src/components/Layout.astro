@@ -1,0 +1,40 @@
+---
+interface Props {
+  title?: string;
+  desc?: string;
+}
+
+const {
+  title = 'Mi primera página con Astro',
+  desc = 'Estamos aprendiendo astro',
+} = Astro.props;
+---
+
+<!doctype html>
+<html lang='en'>
+  <head>
+    <meta charset='UTF-8' />
+    <meta name='viewport' content='width=device-width, initial-scale=1.0' />
+    <meta name='description' content={desc} />
+    <title>{title}</title>
+  </head>
+  <body>
+    <slot />
+  </body>
+</html>
+
+<style>
+  body {
+    color: azure;
+  }
+  body {
+    background-color: rgb(44, 44, 44);
+  }
+  .title {
+    color: skyblue;
+  }
+
+  .danger {
+    color: rgb(214, 91, 91);
+  }
+</style>

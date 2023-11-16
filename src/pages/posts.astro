@@ -1,0 +1,32 @@
+---
+import Layout from '../components/Layout.astro';
+const res = await fetch('https://jsonplaceholder.typicode.com/posts');
+
+const data = await res.json();
+---
+
+<Layout>
+  <section class='contain'>
+    {
+      data.map((el) => (
+        <article class='card'>
+          <h2>{el.title}</h2>
+          <p>{el.body}</p>
+        </article>
+      ))
+    }
+  </section>
+</Layout>
+
+<style>
+  .contain {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+
+    gap: 15px;
+  }
+  .card {
+    border: 1px solid #000;
+    padding: 4px;
+  }
+</style>
